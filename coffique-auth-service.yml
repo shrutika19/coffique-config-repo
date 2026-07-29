@@ -33,3 +33,10 @@ resilience4j:
         waitDuration: 2s
         retryExceptions:
           - org.springframework.web.client.RestClientException
+
+  ratelimiter:
+    instances:
+      loginLimiter:
+        limitForPeriod: 5
+        limitRefreshPeriod: 1m
+        timeoutDuration: 0
