@@ -25,3 +25,11 @@ resilience4j:
         waitDurationInOpenState: 20s
         permittedNumberOfCallsInHalfOpenState: 3
         automaticTransitionFromOpenToHalfOpenEnabled: true
+
+  retry:
+    instances:
+      userService:
+        maxAttempts: 3
+        waitDuration: 2s
+        retryExceptions:
+          - org.springframework.web.client.RestClientException
