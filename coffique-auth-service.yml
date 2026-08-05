@@ -46,3 +46,9 @@ resilience4j:
       userService:
         maxConcurrentCalls: 10
         maxWaitDuration: 1s
+
+  timelimiter:
+    instances:
+      userService:
+        timeoutDuration: 2s
+        cancelRunningFuture: true
