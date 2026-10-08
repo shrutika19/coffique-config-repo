@@ -41,13 +41,6 @@ resilience4j:
         retryExceptions:
           - org.springframework.web.client.RestClientException
 
-  ratelimiter:
-    instances:
-      loginLimiter:
-        limitForPeriod: 5
-        limitRefreshPeriod: 1m
-        timeoutDuration: 0
-
   bulkhead:
     instances:
       userService:
@@ -59,3 +52,10 @@ resilience4j:
       userService:
         timeoutDuration: 2s
         cancelRunningFuture: true
+
+  ratelimiter:
+    instances:
+      loginLimiter:
+        limitForPeriod: ${LOGIN_RATE_LIMIT:5}
+        limitRefreshPeriod: ${LOGIN_RATE_WINDOW:1m}
+        timeoutDuration: 0
